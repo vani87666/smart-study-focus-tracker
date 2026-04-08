@@ -1,0 +1,19 @@
+import streamlit as st
+
+st.title("Smart Study Focus Tracker")
+
+study_time = st.number_input("Study Time (minutes)", min_value=0)
+break_time = st.number_input("Break Time (minutes)", min_value=0)
+
+if st.button("Analyze Focus"):
+    score = study_time - break_time
+
+    if score < 30:
+        result = "Low Focus 😴"
+    elif score < 60:
+        result = "Medium Focus 🙂"
+    else:
+        result = "High Focus 🔥"
+
+    st.write(f"Focus Score: {score}")
+    st.write(result)
